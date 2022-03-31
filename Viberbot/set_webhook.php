@@ -19,9 +19,13 @@ $jsonData =
 }';
 	
 $ch = curl_init('https://chatapi.viber.com/pa/set_webhook');
-curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+echo "<pre>";
+echo "CURLOPT_POST:";
+var_dump(curl_setopt($ch, CURLOPT_POST, 1));
+echo "CURLOPT_POST:";
+var_dump(curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData));
+echo "CURLOPT_POST:";
+vau_dump(curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json')));
 $response = curl_exec($ch);
 $err = curl_error($ch);
 curl_close($ch);
@@ -30,4 +34,5 @@ if($err) {
 } else {
 	echo($response);
 }
+echo "</pre>";
 ?>
